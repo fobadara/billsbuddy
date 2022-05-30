@@ -18,7 +18,7 @@ RSpec.describe 'User', type: :request do
       before(:each) do
         @fob = User.create(name: 'Foobar', email: 'foo@mail.com', password: 'foobar')
         login_as(@fob, scope: :user)
-      
+
         get edit_user_path(@fob)
       end
 
@@ -30,4 +30,5 @@ RSpec.describe 'User', type: :request do
         expect(response).to render_template('edit')
       end
     end
+  end
 end
