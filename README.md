@@ -1,2 +1,2 @@
 # billsbuddy
-A budget app
+My budget app
