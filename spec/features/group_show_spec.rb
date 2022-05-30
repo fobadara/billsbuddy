@@ -5,8 +5,10 @@ RSpec.describe 'Group show', type: :feature do
     visit user_session_path
     @user = User.create(name: 'Test User', email: 'abc@mail.com', password: 'foobar')
     @group1 = Group.create(name: 'Test Group1', icon: 'fa-user')
-    @bill1 = Bill.create(name: 'Test Bill1', amount: 100, description: 'Test description', user_id: @user.id, group_id: @group1.id, due_date: Date.today)
-    @bill2 = Bill.create(name: 'Test Bill2', amount: 100, description: 'Test description', user_id: @user.id, group_id: @group1.id, due_date: Date.today)
+    @bill1 = Bill.create(name: 'Test Bill1', amount: 100, description: 'Test description', user_id: @user.id,
+                         group_id: @group1.id, due_date: Date.today)
+    @bill2 = Bill.create(name: 'Test Bill2', amount: 100, description: 'Test description', user_id: @user.id,
+                         group_id: @group1.id, due_date: Date.today)
 
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
@@ -58,5 +60,5 @@ RSpec.describe 'Group show', type: :feature do
     click_link '<'
 
     expect(page).to have_content('Bills')
-  end 
+  end
 end

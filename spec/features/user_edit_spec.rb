@@ -42,7 +42,7 @@ RSpec.describe 'User edit', type: :feature do
     fill_in 'Password confirmation', with: '123456'
     click_button 'Update'
 
-    expect(page).to have_content("Email is invalid")
+    expect(page).to have_content('Email is invalid')
   end
 
   it 'should not edit user with invalid password' do
@@ -52,7 +52,7 @@ RSpec.describe 'User edit', type: :feature do
     fill_in 'Password confirmation', with: '12345'
     click_button 'Update'
 
-    expect(page).to have_content("Password is invalid")
+    expect(page).to have_content('Password is invalid')
   end
 
   it 'should not edit user with invalid password confirmation' do
