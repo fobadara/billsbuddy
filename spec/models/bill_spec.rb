@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Bill, type: :model do
-  subject { Bill.new(name: 'Test Bill', amount: '100', due_date: '2020-01-01', author_id: '1', group_id: '1') }
+  subject { Bill.new(name: 'Test Bill', amount: '100', description: 'Test Description', due_date: Date.today, author_id: '1', group_id: '1') }
 
   before { subject.save }
 

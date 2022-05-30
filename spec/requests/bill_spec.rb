@@ -95,6 +95,10 @@ RSpec.describe 'Bill', type: :request do
       it 'assigns the requested bill to @bill' do
         expect(assigns(:bill)).to eq(Bill.first)
       end
+
+      it 'deletes the bill' do
+        expect { delete bill_path(1) }.to change(Bill, :count).by(-1)
+      end
     end
   end
 end
