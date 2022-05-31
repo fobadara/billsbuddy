@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :bills
-  has_many :groups, through: :bills
+  has_many :bills, foreign_key: 'author_id'
+  # has_many :groups, foreign_key: 'user_id'
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { minimum: 6, maximum: 50 }
