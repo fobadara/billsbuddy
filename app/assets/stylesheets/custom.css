@@ -6,7 +6,7 @@ body {
 
 a {
   text-decoration: none !important;
-  color: #eee !important;  
+  color: #eee !important;
 }
 
 a:hover {
@@ -30,7 +30,7 @@ a:active {
 }
 
 /* label */
-.required:after {
+.required::after {
   content: "*";
   color: red;
 }
@@ -52,7 +52,6 @@ a:active {
 input {
   margin-bottom: 1em !important;
 }
-
 
 /* Splash page */
 .splash-page {
@@ -97,7 +96,7 @@ input {
   box-shadow: 0 0 6px #eee;
 }
 
-.img-container img{
+.img-container img {
   max-width: 50px;
   max-height: 50px;
   border-radius: 40%;
