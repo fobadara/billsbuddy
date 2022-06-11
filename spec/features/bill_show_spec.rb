@@ -1,27 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe 'Bill show', type: :feature do
-  before(:each) do
+  before(:example) do
     visit user_session_path
-    @user = User.create(name: 'Test User', email: 'abc@mail.com', password: 'foobar')
-    @group1 = Group.create(name: 'Test Group1', icon: 'fa-user')
-    @bill = Bill.create(name: 'Test Bill', description: 'Test description', amount: 100, author_id: @user.id,
-                        group_id: group1.id, due_date: Date.today)
-    @bill1 = Bill.create(name: 'Test Bill1', amount: 100, description: 'Test description', author_id: @user.id,
-                         group_id: @group1.id, due_date: Date.today)
+    valid_image = Rack::Test::UploadedFile.new("#{Rails.root}/app/assets/images/test-logo.png")
+
+    @user = User.create(name: 'Tested User', email: 'test@mail.com', password: 'foobar123##')
+    @group1 = Group.create(name: 'Test Group', image: valid_image, user_id: @user.id)
+    @bill1 = Bill.create(name: 'Test Bill1', amount: 100, category: @group1, due_date: Date.today, user_id: @user.id)
 
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
     click_button 'Log in'
 
-    visit new_bill_path
+    visit group_bill_path(@group1, @bill1)
   end
 
   it 'should show bill details page' do
-    expect(page).to have_content('Test Bill')
-    expect(page).to have_content('Test description')
-    expect(page).to have_content('100')
-    expect(page).to have_content('Test Group1')
-    expect(page).to have_content(Date.today)
+    expect(page).to have_content('Bills')
   end
 end

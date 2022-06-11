@@ -1,9 +1,12 @@
-<h1>New bill</h1>
+<div class="m-1">
+    <%= link_to "Back to categories", group_path(params[:group_id]), class: "mb-2 btn btn-outline-secondary" %>
+</div>
 
-<%= render "form", bill: @bill %>
+<div class="container">
+  <h1>NEW BILL</h1>
 
-<br>
-
-<div>
-  <%= link_to "Back to bills", bills_path %>
+  <div class="container">
+    <%= render partial: "form", locals: { bill: @bill, group: @group, categories: @categories } %>
+  </div>
+  <br>
 </div>

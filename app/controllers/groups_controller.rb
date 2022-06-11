@@ -1,19 +1,31 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.all
+    @groups = current_user.groups
   end
 
   # GET /groups/1 or /groups/1.json
   def show
-    set_group
+    @group = Group.find(params[:id])
+    @bills = Group.find(params[:id]).bills
   end
 
   # GET /groups/new
   def new
+    # @groups = Group.all
     @group = Group.new
+  end
+
+  def create
+    @group = current_user.groups.new(group_params)
+
+    if @group.save
+      redirect_to groups_path, notice: 'Group was successfully created.'
+    else
+      render :new
+    end
   end
 
   # # GET /groups/1/edit
@@ -48,25 +60,26 @@ class GroupsController < ApplicationController
   #   end
   # end
 
-  # # DELETE /groups/1 or /groups/1.json
-  # def destroy
-  #   @group.destroy
+  # DELETE /groups/1 or /groups/1.json
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
 
-  #   respond_to do |format|
-  #     format.html { redirect_to groups_url, notice: "Group was successfully destroyed." }
-  #     format.json { head :no_content }
-  #   end
-  # end
+    respond_to do |format|
+      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
   private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_group
-    @group = Group.find(params[:id])
+    @bill = Group.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def group_params
-    params.require(:group).permit(:name, :icon)
+    params.require(:group).permit(:name, :image, :id)
   end
 end

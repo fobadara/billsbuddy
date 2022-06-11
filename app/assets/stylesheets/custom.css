@@ -1,0 +1,115 @@
+/* General style */
+body {
+  background: #000 !important;
+  color: #eee !important;
+}
+
+a {
+  text-decoration: none !important;
+  color: #eee !important;  
+}
+
+a:hover {
+  transform: translateY(4px);
+}
+
+a:active {
+  transform: translateY(1px);
+}
+
+.notice {
+  color: green !important;
+}
+
+.alert {
+  color: red !important;
+}
+
+.bg-orange {
+  background: rgb(241, 84, 17) !important;
+}
+
+/* label */
+.required:after {
+  content: "*";
+  color: red;
+}
+
+.btns {
+  background-color: rgb(52, 179, 241);
+  border-color: rgb(52, 179, 241);
+  border-radius: 20% 40%;
+  box-shadow: 0 0 4px #eee;
+  color: #fff;
+  font-weight: 500;
+}
+
+.logout-btn {
+  float: right;
+  margin-right: 10px;
+}
+
+input {
+  margin-bottom: 1em !important;
+}
+
+
+/* Splash page */
+.splash-page {
+  height: 50vh;
+  border-radius: 20% 40%;
+  background: rgb(241, 84, 17);
+  box-shadow: 0 0 6px #eee;
+}
+
+.splash-btns {
+  width: 100%;
+}
+
+.splash-btns:hover {
+  background-color: rgb(40, 167, 230);
+  transform: translateY(-2px);
+}
+
+/* Group page */
+.group-page {
+  height: 50vh;
+  border-radius: 20% 40%;
+  background: rgb(241, 84, 17);
+  box-shadow: 0 0 6px #eee;
+}
+
+.grids {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 0.6em;
+  padding: 1em;
+  height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.item {
+  padding: 1em;
+  border: 1px solid #eee;
+  border-radius: 20%;
+  background: rgb(241, 84, 17);
+  box-shadow: 0 0 6px #eee;
+}
+
+.img-container img{
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 40%;
+  box-shadow: 0 0 4px #eee;
+}
+
+/* Bills */
+.bill {
+  font-size: larger !important;
+  font-weight: bold;
+}
+
+.bill:hover {
+  transform: translateY(-2px);
+}

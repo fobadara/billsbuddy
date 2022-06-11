@@ -1,18 +1,16 @@
-<p style="color: green"><%= notice %></p>
+<h1 class="bg-orange border container mb-2 p-3 m-auto">Categories</h1>
 
-<h1>Groups</h1>
-
-<div id="groups">
-  <% @groups.each do |group| %>
-    <%= render group %>
-    <p>
-      <%= link_to "Show this group", group %>
-    </p>
-  <% end %>
-
-  <% if @groups.empty? %>
-    <p>You currently have no bill.</p>
-  <% end %>
+<div class="d-flex container justify-content-end">
+  <%= link_to "New Category", new_group_path, class: "btn btn-outline-secondary btn-lg" %>
 </div>
 
-<%= link_to "New group", new_group_path %>
+<div id="groups">
+  <section class="container grids m-auto">
+    <% @groups.each do |group| %>
+      <%= render group %>
+    <% end %>
+  </section>
+  <% if @groups.empty? %>
+    <p class="text-center">You currently have no bill.</p>
+  <% end %>
+</div>

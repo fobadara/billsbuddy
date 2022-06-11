@@ -3,62 +3,35 @@ require 'rails_helper'
 RSpec.describe 'Group show', type: :feature do
   before(:each) do
     visit user_session_path
-    @user = User.create(name: 'Test User', email: 'abc@mail.com', password: 'foobar')
-    @group1 = Group.create(name: 'Test Group1', icon: 'fa-user')
-    @bill1 = Bill.create(name: 'Test Bill1', amount: 100, description: 'Test description', user_id: @user.id,
-                         group_id: @group1.id, due_date: Date.today)
-    @bill2 = Bill.create(name: 'Test Bill2', amount: 100, description: 'Test description', user_id: @user.id,
-                         group_id: @group1.id, due_date: Date.today)
+
+    valid_image = Rack::Test::UploadedFile.new("#{Rails.root}/app/assets/images/test-logo.png")
+
+    @user = User.create(name: 'Tested User', email: 'test@mail.com', password: 'foobar123##')
+    @group1 = Group.create(name: 'Test Group', image: valid_image, user_id: @user.id)
+
+    @bill1 = Bill.create(name: 'Test Bill1', amount: 100, category: @group1, due_date: Date.today, user_id: @user.id)
+    @bill2 = Bill.create(name: 'Test Bill2', amount: 200, category: @group1, due_date: Date.today, user_id: @user.id)
 
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
     click_button 'Log in'
 
-    visit new_group_path
+    visit group_path(@group1)
   end
 
   it 'should show list of bills for a group' do
-    expect(page).to have_content('Test Bill1')
-    expect(page).to have_content('Test Bill2')
-  end
-
-  it 'should show bill details' do
-    click_link 'Test Bill1'
-
-    expect(page).to have_content('Test Bill1')
-    expect(page).to have_content('Test description')
-    expect(page).to have_content('100')
-    expect(page).to have_content('Test Group1')
-    expect(page).to have_content(Date.today)
+    expect(page).to have_content('List of Bills')
   end
 
   it 'should navigate to add bill page' do
-    click_link 'Add a new Bill'
+    click_link 'Add a new transaction'
 
-    expect(page).to have_content('Add Bill')
-  end
-
-  it 'should navigate to edit bill page' do
-    click_link 'Test Bill1'
-    click_link 'Edit'
-
-    expect(page).to have_content('Edit Bill')
-  end
-
-  it 'should delete bill page' do
-    click_link 'Test Bill1'
-    click_link 'Delete'
-
-    expect(page).to have_content('Bill was successfully deleted')
-  end
-
-  it 'should show total amount for a group' do
-    expect(page).to have_content('Total: $200')
+    expect(page).to have_content('NEW BILL')
   end
 
   it 'should navigate to the homepage when clicking on the back (<) button' do
-    click_link '<'
+    click_link 'Back to groups'
 
-    expect(page).to have_content('Bills')
+    expect(page).to have_content('Categories')
   end
 end

@@ -1,12 +1,21 @@
-<div id="<%= dom_id group %>">
-  <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
+  <%= link_to group_path(group) do %>
+        <article id="<%= dom_id group %>" class="container item">
+          <div class="w-100 me-5 d-flex justify-content-between">    
+            <div class="w-50 d-flex justify-content-between">
+              <div class="img-container">
+                <% if group.image.attached? %>
+                  <%= image_tag(group.image) %>
+                <% end %>
+              </div>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
+              <div>
+              <h2><%= group.name %></h2>
+              <p class="date"> <%= group.created_at.strftime('%d %b %Y') %></p>
+              </div>
+            </div>
 
-</div>
+            <p class="total-amount">$<%=group.total_amount%></p>
+          </div>
+        </article>
+      <% end %>
+      

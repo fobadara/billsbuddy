@@ -1,15 +1,10 @@
-<div id="<%= dom_id bill %>">
+<div class="grids container mx-auto">
   <p>
     <strong>Name:</strong>
     <%= bill.name %>
   </p>
 
-  <p>
-    <strong>Amount:</strong>
-    <%= bill.amount %>
-  </p>
-
-  <p>
+  <p class="me-3">
     <strong>Description:</strong>
     <%= bill.description %>
   </p>
@@ -18,5 +13,6 @@
     <strong>Due date:</strong>
     <%= bill.due_date %>
   </p>
-
+  <%= button_to "Destroy this bill", group_bill_path(@group, bill), :method => :delete, :confirm => "Are you sure?", class: "btn btn-outline-danger" %>
 </div>
+<hr class="container">

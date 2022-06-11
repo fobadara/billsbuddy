@@ -1,4 +1,4 @@
-<%= form_with(model: bill) do |form| %>
+<%= form_with(model: [group, bill] ) do |form| %>
   <% if bill.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
@@ -12,14 +12,17 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, style: "display: block", class: "required" %>
+    <%= form.text_field :name, required: true %>
   </div>
 
   <div>
-    <%= form.label :amount, style: "display: block" %>
+    <%= form.label :amount, style: "display: block", class: "required" %>
     <%= form.number_field :amount %>
   </div>
+  
+   <%= form.label :category, style: "display: block" %>
+   <%= form.collection_select :category, @categories, :id, :name, include_blank: true, prompt: "Select a category"%>
 
   <div>
     <%= form.label :description, style: "display: block" %>
@@ -32,6 +35,6 @@
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Save", class: "btn btn-outline-success" %>
   </div>
 <% end %>

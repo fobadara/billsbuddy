@@ -1,104 +1,36 @@
 require 'rails_helper'
 
-RSpec.describe 'Bill', type: :request do
-  describe 'GET bills_path' do
-    context 'when user is not loggedin' do
-      it 'redirects to login page' do
-        get bills_path
-        expect(response).to redirect_to(login_path)
-      end
-
-      it 'shows flash message' do
-        get bills_path
-        expect(flash[:danger]).to eq('Please login first')
-      end
-    end
-
-    context 'when user is loggedin' do
-      before(:each) do
-        @fob = User.create(name: 'Foobar', email: 'abc@mail.com', password: 'foobar')
-        login_as(@fob, scope: :user)
-
-        get bills_path
-      end
-
-      it 'returns http success' do
-        expect(response).to have_http_status(:success)
-      end
-
-      it 'renders the index template' do
-        expect(response).to render_template('index')
-      end
-    end
-  end
-
+RSpec.describe BillsController, type: :request do
   describe 'GET new_bill_path' do
-    context 'when user is not loggedin' do
-      it 'redirects to login page' do
-        get new_bill_path
-        expect(response).to redirect_to(login_path)
-      end
-
-      it 'shows flash message' do
-        get new_bill_path
-        expect(flash[:danger]).to eq('Please login first')
-      end
+    before(:example) do
+      valid_image = Rack::Test::UploadedFile.new("#{Rails.root}/app/assets/images/test-logo.png")
+      user = User.create(id: '10', name: 'smith', email: 'smith@mail.com', password: 'Fob123233#')
+      login_as(user)
+      @group = Group.create(id: '2', name: 'Group 1', image: valid_image, user_id: user.id)
     end
 
-    context 'when user is loggedin' do
-      before(:each) do
-        @fob = User.create(name: 'Foobar', email: 'abc@mail.com', password: 'foobar')
-        login_as(@fob, scope: :user)
-
-        get new_bill_path
-      end
-
-      it 'returns http success' do
-        expect(response).to have_http_status(:success)
-      end
-
-      it 'renders the new template' do
-        expect(response).to render_template('new')
-      end
+    it 'renders the new bill page' do
+      get new_group_bill_path(group_id: @group.id)
+      expect(response).to have_http_status(200)
     end
   end
 
-  describe 'GET edit_bill_path(:id)' do
-    context 'when user is not loggedin' do
-      it 'redirects to login page' do
-        get edit_bill_path(1)
-        expect(response).to redirect_to(login_path)
-      end
-
-      it 'shows flash message' do
-        get edit_bill_path(1)
-        expect(flash[:danger]).to eq('Please login first')
-      end
+  describe 'POST create_bill_path' do
+    before(:example) do
+      valid_image = Rack::Test::UploadedFile.new("#{Rails.root}/app/assets/images/test-logo.png")
+      user = User.create(id: '10', name: 'smith', email: 'smith@mail.com', password: 'Fob123233#')
+      login_as(user)
+      @group = Group.create(id: '2', name: 'Group 1', image: valid_image, user_id: user.id)
     end
 
-    context 'when user is loggedin' do
-      before(:each) do
-        @fob = User.create(name: 'Foobar', email: 'abc@mail.com', password: 'foobar')
-        login_as(@fob, scope: :user)
+    it 'creates a new bill' do
+      post group_bills_path(@group.id), params: { bill: { name: 'Bill 1', amount: '100', category: @group } }
+      expect(response).to have_http_status(302)
 
-        get edit_bill_path(1)
-      end
-
-      it 'returns http success' do
-        expect(response).to have_http_status(:success)
-      end
-
-      it 'renders the edit template' do
-        expect(response).to render_template('edit')
-      end
-
-      it 'assigns the requested bill to @bill' do
-        expect(assigns(:bill)).to eq(Bill.first)
-      end
-
-      it 'deletes the bill' do
-        expect { delete bill_path(1) }.to change(Bill, :count).by(-1)
-      end
+      bill = Bill.last
+      expect(bill.name).to eq('Bill 1')
+      expect(bill.amount).to eq(100)
+      expect(response).to redirect_to(group_path(@group.id))
     end
   end
 end

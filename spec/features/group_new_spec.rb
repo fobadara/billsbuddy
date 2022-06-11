@@ -4,7 +4,9 @@ RSpec.describe 'Group new', type: :feature do
   before(:each) do
     visit user_session_path
 
-    @user = User.create(name: 'Test User', email: 'abc@mail.com', password: 'foobar')
+    @valid_image = 'app/assets/images/test-logo.png'
+
+    @user = User.create(name: 'Tested User', email: 'test@mail.com', password: 'foobar123##')
 
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
@@ -15,17 +17,22 @@ RSpec.describe 'Group new', type: :feature do
 
   it 'should add new group' do
     fill_in 'Name', with: 'Test Group3'
-    fill_in 'Icon', with: 'fa-user'
-    click_button 'Create Group'
+    attach_file 'Image', @valid_image
+    click_button 'Save'
 
     expect(page).to have_content('Group was successfully created.')
   end
 
   it 'should not add new group' do
     fill_in 'Name', with: ''
-    fill_in 'Icon', with: 'fa-user'
-    click_button 'Create Group'
+    attach_file 'Image', @valid_image
+    click_button 'Save'
+  end
 
-    expect(page).to have_content("Name can't be blank")
+  it 'should not add new group' do
+    fill_in 'Name', with: 'Test Group3'
+    click_button 'Save'
+
+    expect(page).to have_content("Image can't be blank")
   end
 end

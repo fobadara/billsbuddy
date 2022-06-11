@@ -1,10 +1,5 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @bill %>
-
 <div>
-  <%= link_to "Edit this bill", edit_bill_path(@bill) %> |
-  <%= link_to "Back to bills", bills_path %>
-
-  <%= button_to "Destroy this bill", @bill, method: :delete %>
+  <%= link_to "Back to categories", group_path(@group), class: "btn btn-outline-secondary mb-4" %>
 </div>
+<h1 class="text-center">Bills</h1>
+<%= render :partial => 'bill', collection: @bills %>

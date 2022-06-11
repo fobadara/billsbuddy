@@ -3,10 +3,11 @@ require 'rails_helper'
 RSpec.describe 'Group index', type: :feature do
   before(:each) do
     visit user_session_path
+    valid_image = Rack::Test::UploadedFile.new("#{Rails.root}/app/assets/images/test-logo.png")
 
-    @user = User.create(name: 'Test User', email: 'abc@mail.com', password: 'foobar')
-    @group1 = Group.create(name: 'Test Group1', icon: 'fa-user')
-    @group2 = Group.create(name: 'Test Group2', icon: 'fa-user')
+    @user = User.create(name: 'Tested User', email: 'test@mail.com', password: 'foobar123##')
+    @group1 = Group.create(name: 'Test Group', image: valid_image, user_id: @user.id)
+    @group2 = Group.create(name: 'Test Group2', image: valid_image, user_id: @user.id)
 
     fill_in 'Email', with: @user.email
     fill_in 'Password', with: @user.password
@@ -16,26 +17,12 @@ RSpec.describe 'Group index', type: :feature do
   end
 
   it 'should show group index' do
-    expect(page).to have_content('Test Group1')
-    expect(page).to have_content('Test Group2')
-  end
-
-  it 'should show group details' do
-    click_link 'Test Group1'
-
-    expect(page).to have_content('Test Group1')
-    expect(page).to have_content('fa-user')
-  end
-
-  it 'should not show group details' do
-    click_link 'Test Group3'
-
-    expect(page).to have_content('The page you were looking for doesn\'t exist (404)')
+    expect(page).to have_content('Categories')
   end
 
   it 'should navigate to add category page' do
-    click_link 'Add a new Category'
+    click_link 'New Category'
 
-    expect(page).to have_content('Add Category')
+    expect(page).to have_content('NEW CATEGORY')
   end
 end

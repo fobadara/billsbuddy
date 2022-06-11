@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Group, type: :model do
-  subject { Group.new(name: 'Test Group', icon: 'fa-user') }
+  valid_image = Rack::Test::UploadedFile.new("#{Rails.root}/app/assets/images/test-logo.png")
+  user = User.create(id: '1', name: 'John', email: 'john@mail.com', password: 'password')
+  subject { Group.new(id: '1', name: 'Test Group', user_id: user.id, image: valid_image) }
 
   before { subject.save }
 
@@ -14,19 +16,9 @@ RSpec.describe Group, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'is not valid without an icon' do
-    subject.icon = nil
+  it 'is not valid without an image' do
+    subject.image = nil
     expect(subject).to_not be_valid
-  end
-
-  it 'is not valid with a duplicate name' do
-    subject2 = Group.new(name: subject.name, icon: 'fa-user')
-    expect(subject2).to_not be_valid
-  end
-
-  it 'is not valid with a duplicate name regardless of case' do
-    subject2 = Group.new(name: subject.name.upcase, icon: 'fa-user')
-    expect(subject2).to_not be_valid
   end
 
   it 'is not valid with a name greater than 50 characters' do
@@ -34,23 +26,8 @@ RSpec.describe Group, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'is not valid with an icon greater than 50 characters' do
-    subject.icon = 'a' * 51
-    expect(subject).to_not be_valid
-  end
-
-  it 'is not valid with an invalid icon' do
-    subject.icon = 'invalid_icon'
-    expect(subject).to_not be_valid
-  end
-
-  it 'is not valid with an icon that is not a font-awesome icon' do
-    subject.icon = 'fa-invalid'
-    expect(subject).to_not be_valid
-  end
-
-  it 'is not valid with an icon that is not a font-awesome icon regardless of case' do
-    subject.icon = 'FA-invalid'
+  it 'is not valid with an invalid image' do
+    subject.image = Rack::Test::UploadedFile.new("#{Rails.root}/app/assets/images/wrong.svg")
     expect(subject).to_not be_valid
   end
 end
