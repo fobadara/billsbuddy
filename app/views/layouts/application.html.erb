@@ -3,6 +3,8 @@
   <head>
     <title>Billsbuddy</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag asset_path('coin-logo.png') %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,8 +22,8 @@
             <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'bg-secondary text-info navbar-link'  %>
           </div>
       <% end %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <h4 class="notice container mt-5"><%= notice %></h4>
+    <h4 class="alert container mt-5"><%= alert %></h4>
     <p class="navbar-text float-right">
     </p><%= yield %>
   </body>

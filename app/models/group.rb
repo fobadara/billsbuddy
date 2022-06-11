@@ -11,7 +11,7 @@ class Group < ApplicationRecord
   validate :image_type
 
   def image_type
-    return unless image.attached? && image.content_type.in?(%w[image/jpeg image/png image/jpg])
+    return unless !image.attached? && image.content_type.in?(%w[image/jpeg image/png image/jpg])
 
     errors.add(:image, 'must be a JPG, JPEG or PNG')
   end
