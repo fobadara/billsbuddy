@@ -248,6 +248,6 @@ Give a ⭐️ if you like this project!
 
 - Hat tip to [gregoirevella](https://www.behance.net/gregoirevella) for the design idea.
 
--Logo was gotten from <a href='https://pngtree.com/so/vector'>pngtree</a>
+- Logo was gotten from <a href='https://pngtree.com/so/vector'>pngtree</a>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
