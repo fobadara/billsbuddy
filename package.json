@@ -9,7 +9,11 @@
     "sass": "^1.52.2"
   },
   "devDependencies": {
-    "@types/bootstrap": "^5.1.12"
+    "@types/bootstrap": "^5.1.12",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds",
