@@ -14,8 +14,10 @@
     <a href="https://github.com/fobadara/billsbuddy#readme"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/fobadara/billsbuddy">View Demo</a>
+    <a href="https://drive.google.com/file/d/1cb_558Y_uxh1vsqGh0YQumVN5pZKZgLZ/view?usp=sharing">View Demo</a>
     ·
+<a href="https://billsbuddy.herokuapp.com/">Site link</a>
+    .
     <a href="https://github.com/fobadara/billsbuddy/issues">Report Bug</a>
     ·
     <a href="https://github.com/fobadara/billsbuddy/issues">Request Feature</a>
@@ -49,10 +51,6 @@
   - [Show your support 💪](#show-your-support-)
   - [Acknowledgments](#acknowledgments)
 </details>
-
-<!-- About the project -->
-[App screenshot](https://example.com)
-
 
 ## Description 🏗️
 A mobile web application where you can manage your budget.
