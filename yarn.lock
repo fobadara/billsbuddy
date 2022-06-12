@@ -264,13 +264,6 @@
     "remark" "^13.0.0"
     "unist-util-find-all-after" "^3.0.2"
 
-"@types/bootstrap@^5.1.12":
-  "integrity" "sha512-pSS5BGEgepwzdbsBGswBWFmgrnYpp7c4UfuYe1FJWwkrcjm/JVwfG4gBkOYtd92Otd3RdJK0ByBWMkBROfLEPw=="
-  "resolved" "https://registry.npmjs.org/@types/bootstrap/-/bootstrap-5.1.12.tgz"
-  "version" "5.1.12"
-  dependencies:
-    "@popperjs/core" "^2.9.2"
-
 "@types/mdast@^3.0.0":
   "integrity" "sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA=="
   "resolved" "https://registry.npmjs.org/@types/mdast/-/mdast-3.0.10.tgz"
@@ -1722,32 +1715,7 @@
   "resolved" "https://registry.npmjs.org/stylelint-config-recommended/-/stylelint-config-recommended-4.0.0.tgz"
   "version" "4.0.0"
 
-"stylelint-config-standard@^21.0.0":
-  "integrity" "sha512-Yf6mx5oYEbQQJxWuW7X3t1gcxqbUx52qC9SMS3saC2ruOVYEyqmr5zSW6k3wXflDjjFrPhar3kp68ugRopmlzg=="
-  "resolved" "https://registry.npmjs.org/stylelint-config-standard/-/stylelint-config-standard-21.0.0.tgz"
-  "version" "21.0.0"
-  dependencies:
-    "stylelint-config-recommended" "^4.0.0"
-
-"stylelint-csstree-validator@^1.9.0":
-  "integrity" "sha512-fVbtWDEWzux/bZSPBk9tD/bvyc8bSmb52BvUDjcduOzXqKqOyFHUvFayVr9ic88l8KJEVV0Ujab9ah5oTdX4Uw=="
-  "resolved" "https://registry.npmjs.org/stylelint-csstree-validator/-/stylelint-csstree-validator-1.9.0.tgz"
-  "version" "1.9.0"
-  dependencies:
-    "css-tree" "^1.0.0"
-
-"stylelint-scss@^3.21.0":
-  "integrity" "sha512-CMI2wSHL+XVlNExpauy/+DbUcB/oUZLARDtMIXkpV/5yd8nthzylYd1cdHeDMJVBXeYHldsnebUX6MoV5zPW4A=="
-  "resolved" "https://registry.npmjs.org/stylelint-scss/-/stylelint-scss-3.21.0.tgz"
-  "version" "3.21.0"
-  dependencies:
-    "lodash" "^4.17.15"
-    "postcss-media-query-parser" "^0.2.3"
-    "postcss-resolve-nested-selector" "^0.1.1"
-    "postcss-selector-parser" "^6.0.2"
-    "postcss-value-parser" "^4.1.0"
-
-"stylelint@^13.12.0", "stylelint@^13.13.1", "stylelint@^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0", "stylelint@>=7.0.0 <14.0.0":
+"stylelint@^13.12.0", "stylelint@^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0", "stylelint@>=7.0.0 <14.0.0":
   "integrity" "sha512-Mv+BQr5XTUrKqAXmpqm6Ddli6Ief+AiPZkRsIrAoUKFuq/ElkUh9ZMYxXD0iQNZ5ADghZKLOWz1h7hTClB7zgQ=="
   "resolved" "https://registry.npmjs.org/stylelint/-/stylelint-13.13.1.tgz"
   "version" "13.13.1"
