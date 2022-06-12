@@ -169,12 +169,7 @@ npx stylelint "**/*.{css,scss}" --fix
 ```
 ### Run Project
 ```bash
-rails s
-```
-<div align="center">OR</div>
-
-```bash
-./bin/server 
+./bin/dev 
 ```
 This will start a server at:
 ```bash
