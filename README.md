@@ -12,8 +12,7 @@
   <p align="center">
     <br />
     <a href="https://github.com/fobadara/billsbuddy#readme"><strong>Explore the docs »</strong></a>
-    <br />
-    
+    <br /> 
     <br />
     <a href="https://drive.google.com/file/d/1cb_558Y_uxh1vsqGh0YQumVN5pZKZgLZ/view?usp=sharing">View Demo</a>
     ·
@@ -175,11 +174,11 @@ rails s
 <div align="center">OR</div>
 
 ```bash
-rails server 
+./bin/server 
 ```
 This will start a server at:
 ```bash
-localhost:3000
+http://0.0.0.0:5000
 ```
 You can paste or type it on url bar
 
