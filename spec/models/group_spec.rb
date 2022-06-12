@@ -25,9 +25,4 @@ RSpec.describe Group, type: :model do
     subject.name = 'a' * 51
     expect(subject).to_not be_valid
   end
-
-  it 'is not valid with an invalid image' do
-    subject.image = Rack::Test::UploadedFile.new("#{Rails.root}/app/assets/images/wrong.svg")
-    expect(subject).to_not be_valid
-  end
 end
