@@ -39,11 +39,10 @@
     - [Install linter](#install-linter)
     - [Install Bootstrap and it's dependencies](#install-bootstrap-and-its-dependencies)
     - [Create the database](#create-the-database)
-    - [Install linter](#install-linter-1)
+    - [Install Gems](#install-gems)
     - [Run linter](#run-linter)
       - [Auto-correct](#auto-correct)
     - [Run Project](#run-project)
-    - [Usage](#usage)
   - [Built With 🔨](#built-with-)
   - [Author ✍️](#author-️)
   - [🤝 Contributors](#-contributors)
@@ -65,11 +64,11 @@ You will be needing:
 
 - A terminal terminal
 - A code editor
-- Ruby (follow the instructions based on your OS)
+- Ruby 3.1.1 (follow the instructions based on your OS)
   ```bash
   https://www.ruby-lang.org/en/documentation/installation/
   ```
-- Rails (follow the instructions based on your OS)
+- Rails 7.0.3 (follow the instructions based on your OS)
     ```bash
     https://guides.rubyonrails.org/getting_started.html#creating-a-new-rails-project-installing-rails
     ```
@@ -85,8 +84,7 @@ You will be needing:
 
 #### Setting Up PostgreSQL
 
-- The postgres installation doesn't setup a user for you, so you'll need to follow these steps to create a user with permission to create databases
-
+- The postgres installation doesn't setup a user for you, so you'll need to follow these steps to create a user with permission to create databases. You can skip this if you already setup 
   ```bash
   sudo -u postgres createuser <Username> -s
   ```
@@ -125,9 +123,9 @@ rails db:create
 rake db:create
 ```
 
-### Install linter
+### Install Gems
 
-For Ruby and Rails run:
+Run:
   ```bash
   bundle install
   ```
@@ -141,7 +139,7 @@ For stylelint:
 ### Run linter
 For Ruby
 ```bash
-rubocop .
+rubocop
 ```
 For Stylelint:
 ```bash
@@ -169,19 +167,15 @@ npx stylelint "**/*.{css,scss}" --fix
 ```
 ### Run Project
 ```bash
-./bin/dev 
+rails s 
 ```
 This will start a server at:
 ```bash
-http://0.0.0.0:5000
+localhost:3000
 ```
 You can paste or type it on url bar
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
-### Usage
-This will be included when app is done.
 
 ## Built With 🔨
 <div align="center">
