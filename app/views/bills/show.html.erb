@@ -1,5 +1,8 @@
-<div>
-  <%= link_to "Back to categories", group_path(@group), class: "btn btn-outline-secondary mb-4" %>
+<div class="bg-blue p-2">
+  <%= link_to "<", group_path(@group), class: "btn back btn-outline-primary m-2" %>
+  <h1 class="text-center">Details</h1>
 </div>
-<h1 class="text-center">Bills</h1>
-<%= render :partial => 'bill', collection: @bills %>
+
+<div class="w-75 container bg-white">
+  <%= render :partial => 'bill', collection: @bills, class: "w-75" %>
+<div>

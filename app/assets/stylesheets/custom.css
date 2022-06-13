@@ -1,12 +1,33 @@
 /* General style */
 body {
-  background: #000 !important;
-  color: #eee !important;
+  background-color: rgb(231, 231, 238) !important;
+  color: #445 !important;
+  position: relative;
+  font-family: proxima-nova, sans-serif;
+}
+
+.back {
+  color: #fff !important;
+  z-index: 100;
+  position: absolute;
+}
+
+.bg-blue {
+  background: #37c;
+}
+
+.bg-white {
+  background: #fff;
+}
+
+.popup {
+  position: absolute;
+  width: 100%;
 }
 
 a {
   text-decoration: none !important;
-  color: #eee !important;
+  color: rgb(146, 146, 154) !important;
 }
 
 a:hover {
@@ -19,14 +40,12 @@ a:active {
 
 .notice {
   color: green !important;
+  z-index: 4;
 }
 
 .alert {
   color: red !important;
-}
-
-.bg-orange {
-  background: rgb(241, 84, 17) !important;
+  z-index: 6;
 }
 
 /* label */
@@ -40,8 +59,8 @@ a:active {
   border-color: rgb(52, 179, 241);
   border-radius: 20% 40%;
   box-shadow: 0 0 4px #eee;
-  color: #fff;
   font-weight: 500;
+  z-index: 5;
 }
 
 .logout-btn {
@@ -49,12 +68,9 @@ a:active {
   margin-right: 10px;
 }
 
-input {
-  margin-bottom: 1em !important;
-}
-
 /* Splash page */
 .splash-page {
+  margin-top: 5%;
   height: 50vh;
   border-radius: 20% 40%;
   background: rgb(241, 84, 17);
@@ -74,7 +90,6 @@ input {
 .group-page {
   height: 50vh;
   border-radius: 20% 40%;
-  background: rgb(241, 84, 17);
   box-shadow: 0 0 6px #eee;
 }
 
@@ -83,30 +98,48 @@ input {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 0.6em;
   padding: 1em;
-  height: 200px;
+  max-height: 400px;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .item {
-  padding: 1em;
-  border: 1px solid #eee;
-  border-radius: 20%;
-  background: rgb(241, 84, 17);
-  box-shadow: 0 0 6px #eee;
+  margin-top: 2em;
+  padding: 0.5em;
+  background-color: #fff;
+  color: #445;
+  border: 1px solid;
+}
+
+.btn-cont {
+  min-width: 100%;
+  background: rgb(52, 197, 52);
+  color: #fff !important;
+  height: 20%;
+  position: fixed;
+  bottom: 0;
+}
+
+.btn-cont a {
+  color: #fff !important;
 }
 
 .img-container img {
-  max-width: 50px;
-  max-height: 50px;
-  border-radius: 40%;
+  max-width: 70px;
+  max-height: 70px;
   box-shadow: 0 0 4px #eee;
+}
+
+.total-amount {
+  font-size: 1.5em;
+  font-weight: bolder;
 }
 
 /* Bills */
 .bill {
   font-size: larger !important;
   font-weight: bold;
+  width: 80%;
 }
 
 .bill:hover {

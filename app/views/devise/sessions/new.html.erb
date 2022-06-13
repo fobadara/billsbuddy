@@ -1,30 +1,35 @@
-<section class="container w-50 m-auto">
+<section class="">
   <div>
-    <h2>Log in</h2>
-
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="bg-blue d-flex justify-content-between p-2 mb-2">
+        <div>
+          <%= link_to '<', unauthenticated_root_path, class: 'back btn btn-outline-primary' %>
+        </div>
+        <h2 class="text-center">Log in</h2>
+        <%= f.submit "Log in", class: "btns w-25 w-md-75 m-md-auto" %>
+      </div>
       <div class="field">
-        <%= f.label :email, class: "required" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100 m-0", placeholder: "Email (required)" %>
       </div>
 
       <div class="field">
-        <%= f.label :password, class: "required" %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: "w-100" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "w-100 m-0", placeholder: "Password (required)" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="field">
+        <div class="field text-center">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me %>
         </div>
       <% end %>
 
-      <strong class="my-5">All fields marked with <span class="required"></span> are required</strong>
-
-      <div class="actions w-100 d-flex align-center">
+      <%
+=begin%>
+ <div class="actions w-100 d-flex align-center">
         <%= f.submit "Log in", class: "btns w-50 w-md-75 m-md-auto" %>
-      </div>
+      </div> 
+<%
+=end%>
     <% end %>
 
     <%= render "devise/shared/links" %>

@@ -1,35 +1,32 @@
-<section class="container w-50 m-auto">
-  <h2>Sign up</h2>
-
+<section class="">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="bg-blue p-3 d-flex justify-content-between">
+        <div>
+          <%= link_to '<', unauthenticated_root_path, class: 'back btn btn-outline-primary' %>
+        </div>
+        <h1 class="text-center text-white">Register</h1>
+        <%= f.submit "Sign up", class: "btns mt-0" %>
+      </div> 
+  
+  <%= render "devise/shared/error_messages", resource: resource %>
     
-    <div class="field">
-      <%= f.label :name, class: "required" %>
-      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "w-100" %>
-    </div>
+  <div class="field">
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "w-100", placeholder: "Name (required)" %>
+  </div>
 
-    <div class="field">
-      <%= f.label :email, class: "required" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-75" %>
-    </div>
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100 m-0", placeholder: "Email (required)" %>
+  </div>
 
-    <div class="field">
-      <%= f.label :password, class: "required" %>
-      <% if @minimum_password_length %>
+  <div class="field">
+     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", class: "w-50" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "w-100", placeholder: "Password (required)" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, class: "required" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-50" %>
-    </div>
-
-    <strong>All fields marked with <span class="required"></span> are required</strong>
-    <div class="actions">
-      <%= f.submit "Sign up", class: "btns my-4 w-50 w-md-75 m-md-auto" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "w-100", placeholder: "Confirm password (required)" %>
     </div>
   <% end %>
 

@@ -14,7 +14,7 @@
     <a href="https://github.com/fobadara/billsbuddy#readme"><strong>Explore the docs »</strong></a>
     <br /> 
     <br />
-    <a href="https://drive.google.com/file/d/1cb_558Y_uxh1vsqGh0YQumVN5pZKZgLZ/view?usp=sharing">View Demo</a>
+    <a href="https://drive.google.com/file/d/1cb_558Y_uxh1vsqGh0YQumVN5pZKZgLZ/view?usp=sharing">Video Presentation</a>
     ·
     <a href="https://billsbuddy.herokuapp.com/">Site link</a>
     .
