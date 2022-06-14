@@ -9,11 +9,11 @@
         <%= f.submit "Log in", class: "btns w-25 w-md-75 m-md-auto" %>
       </div>
       <div class="field">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100 m-0", placeholder: "Email (required)" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100 m-0", id: "email", placeholder: "Email (required)" %>
       </div>
 
       <div class="field">
-        <%= f.password_field :password, autocomplete: "current-password", class: "w-100 m-0", placeholder: "Password (required)" %>
+        <%= f.password_field :password, autocomplete: "current-password", id: "password", class: "w-100 m-0", placeholder: "Password (required)" %>
       </div>
 
       <% if devise_mapping.rememberable? %>

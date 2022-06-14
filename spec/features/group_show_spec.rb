@@ -12,8 +12,8 @@ RSpec.describe 'Group show', type: :feature do
     @bill1 = Bill.create(name: 'Test Bill1', amount: 100, category: @group1, due_date: Date.today, user_id: @user.id)
     @bill2 = Bill.create(name: 'Test Bill2', amount: 200, category: @group1, due_date: Date.today, user_id: @user.id)
 
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in :email, with: @user.email
+    fill_in :password, with: @user.password
     click_button 'Log in'
 
     visit group_path(@group1)
@@ -30,7 +30,7 @@ RSpec.describe 'Group show', type: :feature do
   end
 
   it 'should navigate to the homepage when clicking on the back (<) button' do
-    click_link 'Back to groups'
+    click_link '<'
 
     expect(page).to have_content('Categories')
   end

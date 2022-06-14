@@ -9,8 +9,8 @@ RSpec.describe 'Bill new', type: :feature do
     @user = User.create(name: 'Tested User', email: 'test@mail.com', password: 'foobar123##')
     @group1 = Group.create(name: 'Test', image: valid_image, user_id: @user.id)
 
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in :email, with: @user.email
+    fill_in :password, with: @user.password
     click_button 'Log in'
 
     visit new_group_bill_path(@group1)

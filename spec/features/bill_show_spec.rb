@@ -9,14 +9,14 @@ RSpec.describe 'Bill show', type: :feature do
     @group1 = Group.create(name: 'Test Group', image: valid_image, user_id: @user.id)
     @bill1 = Bill.create(name: 'Test Bill1', amount: 100, category: @group1, due_date: Date.today, user_id: @user.id)
 
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in :email, with: @user.email
+    fill_in :password, with: @user.password
     click_button 'Log in'
 
     visit group_bill_path(@group1, @bill1)
   end
 
   it 'should show bill details page' do
-    expect(page).to have_content('Bills')
+    expect(page).to have_content('Details')
   end
 end

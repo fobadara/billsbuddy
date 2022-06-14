@@ -9,8 +9,8 @@ RSpec.describe 'Group index', type: :feature do
     @group1 = Group.create(name: 'Test Group', image: valid_image, user_id: @user.id)
     @group2 = Group.create(name: 'Test Group2', image: valid_image, user_id: @user.id)
 
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in :email, with: @user.email
+    fill_in :password, with: @user.password
     click_button 'Log in'
 
     visit groups_path

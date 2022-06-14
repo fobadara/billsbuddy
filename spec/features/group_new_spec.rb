@@ -8,8 +8,8 @@ RSpec.describe 'Group new', type: :feature do
 
     @user = User.create(name: 'Tested User', email: 'test@mail.com', password: 'foobar123##')
 
-    fill_in 'Email', with: @user.email
-    fill_in 'Password', with: @user.password
+    fill_in :email, with: @user.email
+    fill_in :password, with: @user.password
     click_button 'Log in'
 
     visit new_group_path
