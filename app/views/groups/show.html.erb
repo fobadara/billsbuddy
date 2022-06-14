@@ -1,0 +1,30 @@
+<div class="bg-blue d-flex">
+  <%= link_to "<", groups_path, class: "btn back btn-outline-primary" %>
+  <h2 class="container text-center mt-2">List of Bills</h2>
+</div>
+
+<div class="bg-white">
+  <%= render @group %>
+</div>
+
+<% if @bills.empty? %>
+    <p class="text-center">No bills</p>
+  <% else %>
+    <% @group.recent_transactions.each do |bill| %>
+      <%= link_to group_bill_path(@group, bill) do %>
+        <div class="bill border d-flex justify-content-around m-auto mt-3 item">
+          <div>
+            <%= bill.name %>
+          </div>
+          <div>
+            <%= bill.amount %>
+          </div>
+        </div>        
+      <% end %>
+    <% end %>
+  <% end %>
+
+<div class="btn-cont d-flex flex-column align-items-center">
+  <%= link_to "Add a new transaction", new_group_bill_path(@group), class: "container btn btn-outline-secondary my-2" %>
+  <%= button_to "Destroy this group", @group, method: :delete, class: "container btn btn-outline-danger" %>
+</div>

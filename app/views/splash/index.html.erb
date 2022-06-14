@@ -1,0 +1,17 @@
+<div class="splash-page container border d-flex justify-center">
+  <div class="w-50 text-center m-auto">
+    <div class="mb-5">
+      <h1>BILLS BUDDY</h1>
+    </div>
+    <div class="mb-4">
+      <span style="font-size: 120px;">
+        <i class="fa fa-user-circle" aria-hidden="true" style="color: #000;"></i>
+      </span>
+      <h2>WELCOME<h2>
+    </div>
+    <div class="buttons">
+      <%= button_to "Login", new_user_session_path, :method => :get, class:"splash-btns btns" %>
+      <%= button_to "Sign up", new_user_registration_path, :method => :get, class:"splash-btns btns splash-signup" %>
+    </div>
+  </div>
+</div>

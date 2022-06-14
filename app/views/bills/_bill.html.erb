@@ -1,0 +1,23 @@
+<div class="grids container mx-auto">
+  <div>
+    <strong>Name:</strong>
+    <%= bill.name %>
+  </div>
+
+  <div class="me-3">
+    <strong>Description:</strong>
+    <%= bill.description %>
+    <hr>
+  </div>
+  <div>
+    <strong>Due date:</strong>
+    <%= bill.due_date %>
+    <hr>
+  </div>
+  <div class="d-flex justify-content-between">
+    <div>AMOUNT</div>
+    <div>$<%= bill.amount %></div>
+    <hr>
+  </div>
+  <%= button_to "Destroy this bill", group_bill_path(@group, bill), :method => :delete, :confirm => "Are you sure?", class: "btn btn-outline-danger" %>
+</div>

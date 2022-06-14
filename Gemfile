@@ -19,7 +19,7 @@ gem 'puma', '~> 5.0'
 gem 'importmap-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem 'turbo-rails'
+gem 'turbo-rails', '~> 1.0.0'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
@@ -39,19 +39,29 @@ gem 'jbuilder'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
+gem 'bootstrap', '~> 5.1.3'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem 'sassc-rails'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# Run against the stable release
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'capybara', '>= 2.13.0'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails_live_reload'
+  gem 'rspec-rails', '>= 5.1.0'
 end
+
+gem 'devise'
+
+gem 'cancancan'
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -62,4 +72,17 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  gem 'image_processing', '~> 1.2'
+
+  gem 'cssbundling-rails' # Install bootstrap 5
+  gem 'jsbundling-rails' # needed for bootstrap javascript
+
+  gem 'popper_js', '~> 2.9.3'
+
+  gem 'font-awesome-rails'
+
+  gem 'rails-controller-testing'
+
+  gem 'rubocop', '>= 1.0', '< 2.0'
 end

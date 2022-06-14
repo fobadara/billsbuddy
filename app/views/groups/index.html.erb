@@ -1,0 +1,16 @@
+<h1 class="bg-blue border p-3 m-auto mb-0">Categories</h1>
+
+  <section class="container grids m-auto">
+    <% if @groups.empty? %>
+      <p class="text-center">You currently have no bill.</p>
+    <% end %>
+    <div class="container">
+      <% @groups.each do |group| %>
+          <%= render group %>
+      <% end %>
+    </div>
+  </section>
+
+<div class="btn-cont w-100 d-flex justify-content-center align-items-center">
+  <%= link_to "New Category", new_group_path, class: "w-75 p-3 btn btn-outline-secondary btn-lg" %>
+</div>
